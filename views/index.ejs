@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="stylesheet" type="text/css" href="styles.css" /> <!-- modifica numele -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <title>Crypto Data</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="buttons-container">
+            <h1 class="title">Select a Crypto Coin</h1>
+            <!-- <div class="buttons-grid"> -->
+            <form class="buttons-grid" method="post" action="/coin">
+                <button id="btc" name="cryptoButton" value="btc"></button>
+                <button id="eth" name="cryptoButton" value="eth"></button>
+                <button id="bnb" name="cryptoButton" value="bnb"></button>
+                <button id="xrp" name="cryptoButton" value="xrp"></button>
+                <button id="sol" name="cryptoButton" value="sol"></button>
+                <button id="ada" name="cryptoButton" value="ada"></button>
+                <button id="doge" name="cryptoButton" value="doge"></button>
+                <button id="tron" name="cryptoButton" value="trx"></button>
+                <button id="link" name="cryptoButton" value="link"></button>
+                <button id="matic" name="cryptoButton" value="matic"></button>
+                <button id="avax" name="cryptoButton" value="avax"></button>
+                <button id="dot" name="cryptoButton" value="dot"></button>
+                <button id="dai" name="cryptoButton" value="dai"></button>
+                <button id="ltc" name="cryptoButton" value="ltc"></button>
+                <button id="shib" name="cryptoButton" value="shib"></button>
+                <button id="uni" name="cryptoButton" value="uni"></button>
+            </form>
+            <!-- </div> -->
+        </div>
+        <div class="data-table-container">
+            <table>
+                <th colspan="3">Coin Name: <p class="table-title">
+                        <%= (locals.coinBasicData && locals.coinBasicData.name) || defaultBasicData.name || "chose a coin" %>
+                        <!-- (locals.coinBasicData && locals.coinBasicData.name) - a doua valoare va fii randata daca sunt valabile ambele -->
+                    </p>
+                </th>
+                </p>
+                </th>
+                <tr>
+                    <td class="add-border-right">1H%: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_1h))) || putSign(formatData(defaultMonetaryData.percent_change_1h)) || "chose a coin"%></p>
+                    </td>
+                    <td class="add-border-right">24H %: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_24h))) || putSign(formatData(defaultMonetaryData.percent_change_24h)) || "chose a coin"%></p>
+                    </td>
+                    <td>7D %: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_7d))) || putSign(formatData(defaultMonetaryData.percent_change_7d)) || "chose a coin"%></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="add-border-right">30D%: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_30d))) || putSign(formatData(defaultMonetaryData.percent_change_30d)) || "chose a coin"%></p>
+                    </td>
+                    <td class="add-border-right">60%: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_60d))) || putSign(formatData(defaultMonetaryData.percent_change_60d)) || "chose a coin"%></p>
+                    </td>
+                    <td>90D%: <p><%=(coinMonetaryData && putSign(formatData(coinMonetaryData.percent_change_90d))) || putSign(formatData(defaultMonetaryData.percent_change_90d)) || "chose a coin"%></p>
+                    </td>
+                </tr>
+                <tr>
+                   <td class="add-border-right">Price: <p><%=(locals.coinMonetaryData && currencyFormat(coinMonetaryData.price)) || currencyFormat(defaultMonetaryData.price) || "chose a coin"%></p>
+                    </td>
+
+                    </td>
+                    <td>Rank: <p><%= (locals.coinBasicData && locals.coinBasicData.cmc_rank) || defaultBasicData.cmc_rank || "chose a coin" %></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="add-border-right" colspan="3">Volume (24h): <p><%=(locals.coinMonetaryData && currencyFormat(coinMonetaryData.volume_24h)) || currencyFormat(defaultMonetaryData.volume_24h) || "chose a coin"%></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Volume Change (24h): <p><%=(locals.coinMonetaryData?.price && putSign(formatData(coinMonetaryData.volume_change_24h))) || putSign(formatData(defaultMonetaryData.volume_change_24h)) || "chose a coin"%>%</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Market Cap: <p><%=(locals.coinMonetaryData && currencyFormat(coinMonetaryData.market_cap)) || currencyFormat(defaultMonetaryData.market_cap) || "chose a coin"%></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Market Cap Dominance: <p><%=(locals.coinMonetaryData && formatData(coinMonetaryData.market_cap_dominance)) || formatData(defaultMonetaryData.market_cap_dominance) || "chose a coin"%>%</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">Maximum Supply: <%= (locals.coinBasicData && locals.coinBasicData.max_supply) || defaultBasicData.max_supply || "infinite" %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+/* de adaugat ca textul celulelor sa ramana mereu pe aceeasi linie*/
+/* de vazut in curs daca trimite tot obiectul si il acceseaza in ejs sau daca trimite fiecare valoare in parte*/
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    background-color:  #182122;
+}
+
+.title{
+    text-align: center;
+    color: white;
+    font-family: 'Aldrich', sans-serif;
+    font-size: 46px;
+    font-weight: lighter;
+    margin: 0;
+    margin-bottom: 32px;
+}
+
+.background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    background-color: #232C2D;
+    max-width: fit-content;
+    min-height: 714px;
+    border-radius: 1rem;
+    margin: 32px 32px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.buttons-container{
+    display: flex;
+    flex-flow: column;
+    max-width: 496px;
+    margin-right: 16px;
+    margin-left: 32px;
+}
+
+.buttons-grid{
+    display: grid;
+    width:fit-content; /* =496px*/
+    height:fit-content;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 32px;
+}
+
+button{
+    justify-self:center;
+    align-self: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 1rem;
+    border: 0;
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:active{
+    filter: drop-shadow(5px 5px 5px #000000e4);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(2.5px);
+    filter: contrast(-240%);
+    filter:brightness(0.5);
+}
+
+button:hover{
+    filter:brightness(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+#btc{
+    background-color: #f7941ce4;
+    background-image: url("./Coins/btc.png");
+}
+
+#eth{
+    background-color: #627EEAe4;
+    background-image: url("./Coins/eth.png");
+}
+
+#bnb{
+    background-color: #F3BA2Fe4;
+    background-image: url("./Coins/bnb.png");
+}
+
+#xrp{
+    background-color: #7E7E7Ee4;
+    background-image: url("./Coins/xrp.png");
+}
+
+#sol{
+    background-color: #4C4C4Ce4;
+    background-image: url("./Coins/sol.png");
+}
+
+#ada{
+    background-color: #3468D1e4;
+    background-image: url("./Coins/ada.png");
+}
+
+#doge{
+    background-color: #C3A634e4;
+    background-image: url("./Coins/doge.png");
+}
+
+#tron{
+    background-color: #EB322Ae4;
+    background-image: url("./Coins/trx.png");
+}
+
+#link{
+    background-color: #005DD6e4;
+    background-image: url("./Coins/link.png");
+    background-size: 125px;
+}
+
+#matic{
+    background-color: #8247E5e4;
+    background-image: url("./Coins/matic.png");
+}
+
+#avax{
+    background-color: #E84142e4;
+    background-image: url("./Coins/avax.png");
+}
+
+#dot{
+    background-color: #ffecf6e4;
+    background-image: url("./Coins/dot.png");
+}
+
+#dai{
+    background-color: #F5AC37e4;
+    background-image: url("./Coins/dai.png");
+}
+
+#ltc{
+    background-color: #345D9De4;
+    background-image: url("./Coins/ltc.png");
+}
+
+#shib{
+    background-color: #F00500e4;
+    background-image: url("./Coins/shib.png");
+}
+
+#uni{
+    background-color: #FC037Be4;
+    background-image: url("./Coins/uni.png");
+}
+
+.data-table-container{
+    display: flex;
+    margin-left: 16px;
+    margin-right: 32px;
+    min-height: 585px;
+    max-width: 512px;
+    overflow-x: auto;
+    border-radius: 0.5rem;
+    background-color: #2F3839;
+    border: 1.5px solid white;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed; /* fixed means the width of the table is how much we set to width property*/
+    /* table-layout: auto; the cells fit the content size */
+    border-collapse: collapse;
+}
+
+th{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    color: white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+td{
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: white;
+    min-width: 100px;
+    padding: 16px;
+    margin: 0;
+    /* white-space: normal; is set by default as normal */
+}
+
+tr:not(:last-child){
+    border-bottom: 0.3px solid white;
+}
+
+.add-border-right{
+    border-right: 0.3px solid white;
+}
+
+p{
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.table-title{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-size: 2.2rem;
+    color: white;
+}
+
+.center-align{
+    text-align: center;
+}
+
+/* Laptop - 992px to 1336px */
+@media screen and (max-width: 1536px) {/*pune 1536 la final in loc de 1336px*/
+    /* body{
+        background-color: red;
+    } */
+    .background{
+        margin: 24px 24px;
+        min-height: 655px; /*680*/
+    }
+    .data-table-container{
+        height: 560px;
+    }
+    button{
+        width: 90px;
+        height: 90px;
+        background-size: 60px;
+    }
+    .buttons-grid{
+        gap: 24px;
+    }
+
+    .title{
+        font-size: 40px;
+    }
+}
+
+/*Tablet - 768px to 991px*/
+@media screen and (max-width: 991px) {
+    /* body{
+        background-color: green;
+    } */
+    .background{
+        flex-direction: column-reverse;
+        width: 800px;
+        margin: 24px;
+    }
+    .data-table-container{
+        margin: 40px 32px;
+        margin-bottom: 0px;
+    }
+    .buttons-container{
+        margin:0px;
+        margin-top: 56px;
+        margin-bottom: 40px;
+    }
+    button{
+        width: 85px;
+        height: 85px;
+        background-size: 55px;
+    }
+    .buttons-grid{
+        gap: 24px;
+    }
+
+    .title{
+        font-size: 38px;
+        margin-bottom: 16px;
+    }
+}
+
+/* Smartphone vertical - up to 576px */
+@media screen and (max-width: 576px) {
+    /* body{
+        background-color: blue;
+    } */
+    .background{
+        margin: 12px;
+    }
+    .data-table-container{
+        margin: 24px 16px;
+        margin-bottom: 0px;
+    }
+    .buttons-container{
+        margin: 0px 16px;
+        margin-top: 48px;
+        margin-bottom: 32px;
+    }
+    button{
+        width: 75px;
+        height: 75px;
+        background-size: 45px;
+    }
+    .buttons-grid{
+        gap: 16px;
+    }
+    .title{
+        font-size: 32px;
+    }
+}
