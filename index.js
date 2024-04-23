@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const app = express();
 const port = 3000;
-const API_key = "87858820-d097-43af-bfb4-c40cd2fef711";
+const API_key = "";
 const API_Base_URL = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest";
 
 app.use(express.static("public"));
